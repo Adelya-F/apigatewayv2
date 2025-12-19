@@ -196,7 +196,7 @@
         Tags:
           - Key: Name
             Value: !Sub ${EnvironmentName}-private-rt-2b
-            
+
     PrivateSubnet1RouteTableAssociation:
       Type: AWS::EC2::SubnetRouteTableAssociation
       Properties:
@@ -326,14 +326,14 @@
             - ObjectOwnership: BucketOwnerPreferred
         VersioningConfiguration:
           Status: Enabled
-      LifecycleConfiguration:
-        Rules:
-          - Id: ArchiveAndExpire
-            Status: Enabled
-            Transitions:
-              - TransitionInDays: 30
-                StorageClass: GLACIER
-            ExpirationInDays: 365
+        LifecycleConfiguration:
+          Rules:
+            - Id: ArchiveAndExpire
+              Status: Enabled
+              Transitions:
+                - TransitionInDays: 30
+                  StorageClass: GLACIER
+              ExpirationInDays: 365
         PublicAccessBlockConfiguration:
           BlockPublicAcls: false
           BlockPublicPolicy: false
