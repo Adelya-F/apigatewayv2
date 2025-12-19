@@ -103,4 +103,5 @@ jobs:
             --environment-name ${{ secrets.EB_ENV_NAME }} \
             --attribute HealthStatus --query "HealthStatus"
  
+
  
