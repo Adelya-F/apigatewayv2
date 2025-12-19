@@ -90,11 +90,11 @@ jobs:
             --process
 
           aws elasticbeanstalk update-environment \
-            --environment-name ${{ secrets.EB_ENVIRONTMENT_NAME }} \
+            --environment-name ${{ secrets.EB_ENVIRONMENT_NAME }} \
             --version-label $GITHUB_SHA
 
       - name: Check Elastic Beanstalk Health Status
         run: |
           aws elasticbeanstalk describe-environment-health \
-            --environment-name ${{ secrets.EB_ENVIRONTMENT_NAME }} \
+            --environment-name ${{ secrets.EB_ENVIRONMENT_NAME }} \
             --attribute HealthStatus --query "HealthStatus"
