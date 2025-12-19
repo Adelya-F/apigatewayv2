@@ -84,14 +84,14 @@ jobs:
       - name: Deploy to Elastic Beanstalk
         run: |
           aws elasticbeanstalk create-application-version \
-            --application-name ${{ secrets.EB_APPLICATION_NAME }} \
-            --version-label $GITHUB_SHA \
-            --source-bundle S3Bucket=${{ secrets.S3_BUCKET_NAME }},S3Key=Dockerrun.aws.json \
+            --application-name "${{ secrets.EB_APPLICATION_NAME }}" \
+            --version-label "${{ github_sha }}" \
+            --source-bundle S3Bucket="${{ secrets.S3_BUCKET_NAME }}",S3Key="Dockerrun.aws.json" \
             --process
 
           aws elasticbeanstalk update-environment \
-            --environment-name ${{ secrets.EB_ENVIRONMENT_NAME }} \
-            --version-label $GITHUB_SHA
+            --environment-name "${{ secrets.EB_ENVIRONMENT_NAME }}" \
+            --version-label "${{ github_sha }}"
 
       - name: Check Elastic Beanstalk Health Status
         run: |
