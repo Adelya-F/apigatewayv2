@@ -1,0 +1,12 @@
+{
+  "AWSEbdockerrunVersion": "1",
+  "Image": {
+    "Name": "533266986909.dkr.ecr.us-east-1.amazonaws.com/lks-ecr-adel:latest",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 80
+    }
+  ]
+}
