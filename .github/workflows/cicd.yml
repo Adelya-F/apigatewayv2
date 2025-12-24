@@ -97,3 +97,5 @@ jobs:
           aws elasticbeanstalk describe-environment-health \
             --environment-name ${{ secrets.EB_ENVIRONMENT_NAME }} \
             --attribute HealthStatus --query "HealthStatus"
+
+
